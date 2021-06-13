@@ -1,0 +1,444 @@
+body{
+	background-color: #E5E5E5;
+}
+.bodyIndex{
+  background-color: white;
+}
+
+.successMes{
+	border-radius: 20px / 10px;
+	background-color: white;
+	color: green;
+	font-weight: bold;
+  text-align: center;
+}
+.errorMes{
+  border-radius: 20px / 10px;
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+li{
+  list-style: none;
+}
+
+.btnRegister, .btnCart{
+  background-color: #14213D;
+}
+
+/*   FOOTER   */
+footer{
+    margin: 0px;
+    z-index: 1000;
+    position: relative;
+    width: 100%;
+    color:white;
+    background-color: black;
+    padding-bottom: 2%;
+}
+.footerRow{
+    margin: 0px;
+}
+footer a{
+color: #FCA311;
+}
+footer a:hover {
+    color: #E5E5E5;
+  }
+
+/*password */
+.progress{
+  height: 30px;
+  color: black;
+  font-size: 20px;
+}
+.naColor{
+	background-color: #14213D;
+}
+.passwordNotChange, .passwordChange{
+	cursor:pointer;
+}
+
+/*.card{
+  border: none;
+  height: 7rem;
+  } */
+
+  /* USERCREATE */
+  .userCreatLegend{
+    box-shadow:  2px 2px 8px 0;
+    border-radius: 5px;
+    background-color: #FCA311;
+  }
+  .userCreateBtn{
+    box-shadow:  2px 2px 8px 0;
+    border-radius: 5px;
+    background-color: #FCA311;
+  }
+  .labelForm{
+    font-weight: bold;
+  }
+
+
+  /* userProfile */
+  .bgUserProfile{
+    background-color: #FCA311;
+  }
+  .userProfileP{
+    color: #14213D;
+    font-size:large;
+  }
+  .stik{
+    background-color: #14213D;
+    font-size:large;
+    color: white;
+  }
+  .stickButt{
+    font-size:large;
+    font-weight: bolder;
+  }
+  .userProfilePInfo{
+    font-weight: bolder;
+    font-size: medium;
+    color: #14213D;
+  }
+  .userProfileTr{
+    color: #14213D;
+    background-color: white;
+  }
+  .fantom{
+    height: 100px;
+  }
+
+
+
+
+  /* Info-bulle */
+  .infobulle {
+    text-decoration:none;
+    position:relative;
+  }
+  .infobulle span {
+    display:none;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    color:black;
+    background-color: #eff1f3;
+    font-size:14px;
+    font-style:italic;
+  }
+  .infobulle span img {
+    float:left;
+    margin:0px 8px 8px 0;
+  }
+  .infobulle:hover span
+  {
+    display:block;
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:1000;
+    width:700px;
+    /* max-width:200px; */
+    min-height:20px;
+    border:1px solid black;
+    margin-top:12px;
+    margin-left:32px;
+    overflow:hidden;
+    padding:8px;
+  }
+
+  .boutt{
+    border: none;
+    background: url(../img/loupe.png);
+    background-repeat: no-repeat;
+    width: 5em;
+    height: 5em;
+    background-position: center;
+    background-size: 50%
+  }
+
+  a {
+    color: #FCA311;
+  }
+  a:hover {
+    color: #14213D;
+  }
+  .page-link{
+    color: #FCA311;
+  }
+  .page-link:hover{
+    color: #14213D;
+  }
+  .nav-link:hover{
+   color: #E5E5E5;
+ }
+ .LogoName{
+  color: #E5E5E5
+}
+.LogoName:hover{
+  color: #FCA311;
+}
+.logoDiv{
+  border-right: solid;
+  border-right-color: #FCA311;
+}
+
+
+
+/* adminUserList */
+.adminUserListH2{
+  color: #14213D; 
+}
+.adminUserListTable{
+  background-color: white;
+  border: solid #FCA311;
+}
+.adminUserListThead{
+  border: solid #FCA311;
+}
+.adminUserListTr{
+  color: #14213D;
+  border: solid #FCA311;
+}
+
+
+
+/* itemProfile */
+/* div de suggestion avec scroll horizontal */
+#suggestList{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.cardThumb{
+  width: 100px;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 1px solid #E5E5E5;
+  flex-basis: 33.333%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 8px 0;
+}
+.topCart{
+  border-bottom-style: inset;
+}
+.textO{
+  border-top-style: outset;
+}
+.section{
+  height: 500px;
+}
+.titleSection{
+  background-color: #FCA311;
+}
+.itemProfWeightPack{
+  border: 1px solid black;
+  border-radius: 30px;
+}
+.descriptPackag{
+ font-size: 20px; 
+}
+.ideaMenuTitle{
+  font-weight: bold;
+  color: #14213D;
+}
+.ideaMenuName{
+  font-family:  cursive;
+  font-size: x-large;
+}
+.divDeDroite{
+  position: fixed;
+  z-index: 1000;
+}
+#buy{
+ background-color: #14213D;
+}
+#itemNumber{
+  width: 3em;
+}
+.itemProfileThead{
+  background-color: #FCA311;
+}
+
+
+/* adminItemList */
+.stockColor, .designatItemName, .ItemTitlePage{
+  color: #14213D;
+  font-weight: bold;
+}
+input[type="number"] {
+  width: 60%;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+#stockSubmit{
+  font-weight: bolder;
+}
+.itemListImage{
+  width: 80px;
+}
+.adminItemListTable{
+  background-color: white;
+  border: solid #FCA311;
+}
+.adminItemListThead{
+  border: solid #FCA311;
+}
+.adminItemListTr{
+  color: #14213D;
+  border: solid #FCA311;
+}
+.adminItemListButtonAjust{
+  font-weight: bold;
+  color: #14213D;
+}
+
+
+/* itemCreate */
+.itemCreateBody{
+  background-color: #14213D;
+}
+.itemCreateDiv{
+  box-shadow: 2px 1px 20px #FCA311;
+  background-color: #eff1f3;
+}
+.itemCreatLegend{
+  box-shadow: 2px 2px 8px 0;
+  border-radius: 5px;
+  background-color: #FCA311;
+  font-weight: bold;
+}
+
+
+
+/* catalogue */
+.card-title{
+  height: 3em;
+}
+.categoryCard{
+ box-shadow: 2px 2px 8px 0;
+}
+.card-header{
+  background-color: #14213D;
+  font-size: large;
+  font-weight: bolder;
+}
+.titleBar{
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.divcategoryTitle{
+  background-color: white;
+  box-shadow: 2px 2px 8px 0;
+  border-radius: 5px;
+}
+.cardThumbCatalogue{
+  box-shadow: 2px 2px 8px 0;
+}
+
+
+/* item profil POP UP PANIER*/
+
+
+
+
+
+
+
+/**************************************
+*     superposition login
+**************************************/
+#bloc-principal{
+  height: 700px;
+}
+
+.parent {
+  position: relative;
+  display: flex;
+}
+
+.child1 {
+  flex: 1;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  height: 400px;
+
+}
+
+.child3{
+  flex: 1;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 400px;
+  
+}
+#canvasConnexion{
+  position: absolute;
+  top: 0;
+  left: 0%;
+  background-color: #14213D;
+  height: 400px;
+}
+
+/**************************************
+*     animation login
+**************************************/
+
+.cacheColor{
+  position: absolute;
+  top: 0;
+  left: 0%;
+  z-index: 5;
+  height: 400px;
+  width: 50%;
+  transform:translate(0,0);
+  transition: transform 500ms;
+  
+  padding-top: 180px;
+}
+
+.cacheColor.rightSlide{
+  transform:translate(100%, 0px);
+}
+
+span{
+  position: absolute;
+  cursor:pointer;
+  font-size: 22px;
+  margin-left: 38%;
+
+}
+
+/**************************************
+*             Panier
+**************************************/
+
+.carte{
+  background-color: white;
+  box-shadow: 2px 2px 8px 0;
+}
+.emptyCart{
+  font-weight: bolder;
+  font-size: x-large;
+}
+.goShopping{
+  background-color:  #FCA311;
+  font-weight: bolder;
+  font-size: x-large;
+}
+.aGoShopping{
+  color: #14213D;
+}
+.aGoShopping:hover{
+ color: #14213D;
+}
