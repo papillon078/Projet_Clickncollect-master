@@ -102,9 +102,40 @@ public function cartCreate(){
   } else {
     return TRUE;
   }
+
 }
 
+/**
+* méthode permettant de mettre à jour le profil d'un utilisateur qui vient de s'inscrire
+* @return boolean
+*/
+    public function updateOrder() {
 
+        try {
+
+     // définition de la requête sql
+    $query = "  UPDATE  `ll7882_orders`
+                SET     `delivery_date` = :delivery_date
+                           
+                WHERE  `id_ll7882_users` = :user";
+
+    // preparation de la requete au serveur de bdd
+    $result = $this->db->prepare($query);
+
+   // association des marqueurs nommées aux véritables informations
+    $result->bindValue(':user', $this->id_ll7882_users, PDO::PARAM_INT);
+    $result->bindValue(':delivery_date', $this->delivery_date, PDO::PARAM_STR);
+    
+  // execution de la requete
+  // renvoi TRUE en cas de succès sinon FALSE là où j'appelle ma méthode updateUser(ctrl)
+    return $result->execute();
+  }
+
+  //bloc catch de renvoi des erreurs
+  catch (PDOException $e) {
+    die('echec de la connexion : ' . $e->getMessage());
+  }
+}
 
 
 

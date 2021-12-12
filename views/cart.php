@@ -4,6 +4,7 @@ require_once '../init/functions.php';
 require_once '../init/credentials.php';
 require_once '../models/database.php';
 require_once '../models/item.php';
+require_once '../models/order.php';
 require_once '../models/commandLine.php';
 require_once '../controllers/cartCtrl.php';
 ?>
@@ -31,13 +32,6 @@ require_once '../controllers/cartCtrl.php';
 							
 						</a>
 					</div>
-
-
-
-
-
-
-
 
 				</div>
 			</div>
@@ -107,11 +101,25 @@ require_once '../controllers/cartCtrl.php';
 					<div class="my-3 mx-2">
 						<div class="row">
 							<button type="button" class="btn btnCart mx-3"><a href="catalogue.php" class="text-white">Continuer mes achats</a></button>
-							<button type="button" class="btn btnCart"><a href="catalogue.php" class="text-white">Valider mon panier</a></button>
 
-							
+
 						</div>
 					</div>
+					<form action="#" method="POST">
+
+						<div class="my-3">
+							<p>Choisissez une date de retrait</p>
+<!-- DANS LA PROPRIETE VALUE, INSERER LES DATES EN FORMAT DATETIME-->
+							<input type="radio" name="dateChoice" id="jourCourant" class="btn btnCart text-white mx-3" value="<?= $jourmeme ?>" checked/>
+							<label for="jourCourant"><?= $jourmeme ?></label>
+
+							<input type="radio" name="dateChoice" id="jourSuivant" class="btn btnCart text-white mx-3" value="<?= $lendemain ?>" />
+							<label for="jourSuivant"><?= $lendemain ?></label>
+
+							 <button type="submit" class="btnCart btn btn-lg btn-block mt-4 mb-4 text-white" name="submit" value="envoi" >Valider mon panier</button>
+							
+						</div>
+					</form>
 				</div>
 			</div>
 		<?php } ?>
