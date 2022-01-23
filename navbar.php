@@ -31,7 +31,6 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="userProfile.php">Mon profil</a>
-              <a class="dropdown-item" href="#">Mes commandes</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="userLogout.php">Déconnection</a>
             </div>
@@ -75,7 +74,6 @@
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="userProfile.php">Mon profil</a>
-            <a class="dropdown-item" href="#">Mes commandes</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="userLogout.php">Déconnection</a>
           </div>
@@ -128,7 +126,6 @@
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="userProfile.php">Mon profil</a>
-            <a class="dropdown-item" href="#">Mes commandes</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="userLogout.php">Déconnection</a>
           </div>

@@ -109,12 +109,25 @@ require_once '../controllers/cartCtrl.php';
 
 						<div class="my-3">
 							<p>Choisissez une date de retrait</p>
-<!-- DANS LA PROPRIETE VALUE, INSERER LES DATES EN FORMAT DATETIME-->
-							<input type="radio" name="dateChoice" id="jourCourant" class="btn btnCart text-white mx-3" value="<?= $jourmeme ?>" checked/>
+<!-- LES TIME SLOT SONT EN PARAMETRE, il faut remplir le modele order-->
+							<input type="radio" name="dateChoice" id="jourCourant" class="btn btnCart text-white mx-3" value="<?= $jour.' 00:00:00' ?>" checked/>
 							<label for="jourCourant"><?= $jourmeme ?></label>
 
-							<input type="radio" name="dateChoice" id="jourSuivant" class="btn btnCart text-white mx-3" value="<?= $lendemain ?>" />
+							<input type="radio" name="dateChoice" id="jourSuivant" class="btn btnCart text-white mx-3" value="<?= $lendemainBDD.' 00:00:00' ?>" />
 							<label for="jourSuivant"><?= $lendemain ?></label>
+
+							<div class="input-group">
+								<div class="input-group-prepend row">
+									<?php
+									for($i=1; $i <25; $i++){?>
+										<div class="col-1">
+										<input class="timeSlot col-1" name="timeSlot" id="timeSlot<?= $i ?>" type="radio" value="<?= $i ?>" />
+										<label for="timeSlot<?= $i ?>"><?= $timeSlotArray[$i] ?></label>
+									</div>
+									<?php } ?>
+								</div>
+							</div>
+
 
 							 <button type="submit" class="btnCart btn btn-lg btn-block mt-4 mb-4 text-white" name="submit" value="envoi" >Valider mon panier</button>
 							

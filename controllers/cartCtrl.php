@@ -30,7 +30,8 @@ if ($jour=="Sunday"){
   $jour = date("Y-m-d", strtotime("$jour +1 day")); 
   $jourmeme = $joursFR[strftime('%w',strtotime($jour))]." ".strftime('%d',strtotime($jour))." ".$moisFR[strftime('%m',strtotime($jour))];
   $lendemain = $joursFR[strftime('%w',strtotime("$jour +1 day"))]." ".strftime('%d',strtotime("$jour +1 day"))." ".$moisFR[strftime('%m',strtotime("$jour +1 day"))];
-  echo("dateBDD ".$jour."</br>"."date affichée ".$jourmeme);
+  $lendemainBDD = date("Y-m-d", strtotime("$jour +1 day"));
+  echo("dateBDD ".$jour."</br>"."date affichée ".$jourmeme."</br>"."lendemain BDD : ".date("Y-m-d", strtotime("$jour +1 day")));
 }else{
   $jour = date("Y-m-d", strtotime($jour)); 
   $jourmeme = $joursFR[strftime('%w',strtotime($jour))]." ".strftime('%d',strtotime($jour))." ".$moisFR[strftime('%m',strtotime($jour))];
@@ -42,6 +43,13 @@ if ($jour=="Sunday"){
   }
 
 }
+
+
+ /*******************************************************************************
+*  Tableau des timeslots
+******************************************************************************/  
+  $timeSlotArray = array("1" => "08:00", "2" => "08:30", "3" => "09:00", "4" => "09:30", "5" => "10:00", "6" => "10:30", "7" => "11:00", "8" => "11:30", "9" => "12:00", "10" => "12:30", "11" => "13:00", "12" => "13:30", "13" => "14:00", "14" => "14:30", "15" => "15:00", "16" => "15:30", "17" => "16:00", "18" => "16:30", "19" => "17:00", "20" => "17:30", "21" => "18:00", "22" => "18:30", "23" => "19:00", "24" => "19:30");
+
 
 /*******************************************************************************
 *  Mise a jour de la commande avec la date de retrait choisie

@@ -75,7 +75,7 @@ if (isset($_SESSION['errorMessage'])) {
           <a class="nav-link" href="views/catalogue.php">Catalogue</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Panier</a>
+          <a class="nav-link" href="views/cart.php">Panier</a>
         </li>
 
         <li>
@@ -86,7 +86,6 @@ if (isset($_SESSION['errorMessage'])) {
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="views/userProfile.php">Mon profil</a>
-              <a class="dropdown-item" href="#">Mes commandes</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="views/userLogout.php">Déconnection</a>
             </div>
@@ -131,7 +130,6 @@ if (isset($_SESSION['errorMessage'])) {
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="views/userProfile.php">Mon profil</a>
-            <a class="dropdown-item" href="#">Mes commandes</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="views/userLogout.php">Déconnection</a>
           </div>
@@ -140,7 +138,7 @@ if (isset($_SESSION['errorMessage'])) {
 
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Panier</a>
+        <a class="nav-link" href="views/cart.php">Panier</a>
       </li>
       <?php
     }
@@ -168,7 +166,7 @@ if (isset($_SESSION['errorMessage'])) {
             Gestion des produits
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="views/adminItemListe.php">Liste des produits</a>
+            <a class="dropdown-item" href="views/adminItemList.php">Liste des produits</a>
             <a class="dropdown-item" href="views/itemCreate.php">Ajouter un produit</a>
           </div>
         </li>
@@ -181,7 +179,6 @@ if (isset($_SESSION['errorMessage'])) {
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="views/userProfile.php">Mon profil</a>
-            <a class="dropdown-item" href="#">Mes commandes</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="views/userLogout.php">Déconnection</a>
           </div>
@@ -190,7 +187,7 @@ if (isset($_SESSION['errorMessage'])) {
 
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Panier</a>
+        <a class="nav-link" href="views/cart.php">Panier</a>
       </li>
 
       <?php 
@@ -360,9 +357,9 @@ if (isset($_SESSION['errorMessage'])) {
     </div>
   </div>
 </footer>
-<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="assets/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
-<script src="../assets/libraries/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+<script src="assets/libraries/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   tarteaucitron.user.gtagUa = 'UA-XXXXXXXX-X';
 tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };

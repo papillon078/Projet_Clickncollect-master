@@ -34,7 +34,7 @@ footer{
     position: relative;
     width: 100%;
     color:white;
-    background-color: black;
+    background-color: #14213D;
     padding-bottom: 2%;
 }
 .footerRow{
@@ -441,4 +441,16 @@ span{
 }
 .aGoShopping:hover{
  color: #14213D;
+}
+/* BOUTTONS TIMESLOT */
+
+input[type="radio"].timeSlot {
+  display: none;
+}
+input[type="radio"].timeSlot + label {
+  padding: 0.3rem 0.5rem;
+  border: 1px dashed #ccc;
+}
+input[type="radio"].timeSlot:checked + label {
+  border: 1px solid #000;
 }
