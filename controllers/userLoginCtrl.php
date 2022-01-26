@@ -126,7 +126,7 @@ if (isAdmin() || isSeller() || isClient()) {
     // $success == TRUE en cas de succès sinon FALSE
     if ($success) {
       $_SESSION['email'] = strtolower(htmlspecialchars(trim($_POST['email'])));
-      $_SESSION['successMessage'] = 'La création de votre espace a débuté';
+      $_SESSION['successMessage'] = 'Votre commande a bien été validée, vous pouvez la consulter ci-dessous';
       header('Location: userRegister.php');
       exit();
 
@@ -138,12 +138,6 @@ if (isset($_SESSION['successMessage'])) {
   $successMessage = $_SESSION['successMessage'];
   unset($_SESSION['successMessage']);
 }
-// lecture des notifications
-if (isset($_SESSION['errorMessage'])) {
-  $errorMessage = $_SESSION['errorMessage'];
-  unset($_SESSION['errorMessage']);
-}
-
 
 }
 ?>

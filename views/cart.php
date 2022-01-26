@@ -105,7 +105,7 @@ require_once '../controllers/cartCtrl.php';
 
 						</div>
 					</div>
-					<form action="#" method="POST">
+					<form action="" method="POST">
 
 						<div class="my-3">
 							<p>Choisissez une date de retrait</p>

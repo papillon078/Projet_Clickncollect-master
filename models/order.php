@@ -115,8 +115,8 @@ public function cartCreate(){
 
      // définition de la requête sql
     $query = "  UPDATE  `ll7882_orders`
-                SET     `delivery_date` = :delivery_date
-                           
+                SET     `id_ll7882_status` = :id_ll7882_status,
+                        `id_ll7882_timeslot_allocations` = :id_ll7882_timeslot_allocations
                 WHERE  `id_ll7882_users` = :user";
 
     // preparation de la requete au serveur de bdd
@@ -124,7 +124,8 @@ public function cartCreate(){
 
    // association des marqueurs nommées aux véritables informations
     $result->bindValue(':user', $this->id_ll7882_users, PDO::PARAM_INT);
-    $result->bindValue(':delivery_date', $this->delivery_date, PDO::PARAM_STR);
+    $result->bindValue(':id_ll7882_status', $this->id_ll7882_status, PDO::PARAM_INT);
+    $result->bindValue(':id_ll7882_timeslot_allocations', $this->id_ll7882_timeslot_allocations, PDO::PARAM_INT);
     
   // execution de la requete
   // renvoi TRUE en cas de succès sinon FALSE là où j'appelle ma méthode updateUser(ctrl)

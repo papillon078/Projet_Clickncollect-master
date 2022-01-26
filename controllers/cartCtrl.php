@@ -31,15 +31,17 @@ if ($jour=="Sunday"){
   $jourmeme = $joursFR[strftime('%w',strtotime($jour))]." ".strftime('%d',strtotime($jour))." ".$moisFR[strftime('%m',strtotime($jour))];
   $lendemain = $joursFR[strftime('%w',strtotime("$jour +1 day"))]." ".strftime('%d',strtotime("$jour +1 day"))." ".$moisFR[strftime('%m',strtotime("$jour +1 day"))];
   $lendemainBDD = date("Y-m-d", strtotime("$jour +1 day"));
-  echo("dateBDD ".$jour."</br>"."date affichée ".$jourmeme."</br>"."lendemain BDD : ".date("Y-m-d", strtotime("$jour +1 day")));
+  /*echo("dateBDD ".$jour."</br>"."date affichée ".$jourmeme."</br>"."lendemain BDD : ".date("Y-m-d", strtotime("$jour +1 day")));*/
 }else{
   $jour = date("Y-m-d", strtotime($jour)); 
   $jourmeme = $joursFR[strftime('%w',strtotime($jour))]." ".strftime('%d',strtotime($jour))." ".$moisFR[strftime('%m',strtotime($jour))];
 
   if($jour=="Saturday"){
     $lendemain = $joursFR[strftime('%w',strtotime("$jour +2 day"))]." ".strftime('%d',strtotime("$jour +2 day"))." ".$moisFR[strftime('%m',strtotime("$jour +2 day"))];
+    $lendemainBDD = date("Y-m-d", strtotime("$jour + 2 day"));
   }else{
     $lendemain = $joursFR[strftime('%w',strtotime("$jour +1 day"))]." ".strftime('%d',strtotime("$jour +1 day"))." ".$moisFR[strftime('%m',strtotime("$jour +1 day"))];
+    $lendemainBDD = date("Y-m-d", strtotime("$jour +1 day"));
   }
 
 }
@@ -55,17 +57,19 @@ if ($jour=="Sunday"){
 *  Mise a jour de la commande avec la date de retrait choisie
 ******************************************************************************/  
 if (isset($_POST['submit'])) {
-  debug($_SESSION['user_cart_id']);
   // création d'une instance de classe order
   $order = new Order();
-  $order->$id_ll7882_users = $_SESSION['user_cart_id'];
-
-  $order->$delivery_date = $_POST['dateChoice'];
+  $order->order_date = $jourmeme;
+  $order->delivery_date = $_POST['dateChoice'];
+  $order->total_price = $total;
+  $order->id_ll7882_users = $_SESSION['user_id'];
+  $order->id_ll7882_status = 1;
+  $order->id_ll7882_timeslot_allocations = $_POST['timeSlot'];
   $success = $order->updateOrder();
 
   if (isset($success) && $success) {
 
-    header('location: ../index.php');
+    header('location: userProfile.php');
     exit();
   }
 }
