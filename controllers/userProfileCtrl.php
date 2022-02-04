@@ -19,8 +19,11 @@ if (!isAdmin() && !isClient()) {
         // dédinition de l'id de l'usager à rechercher
       $user->id = htmlspecialchars(intval($_SESSION['user_id']));
     }
-  // récupération du profil usager
+  // récupération du profil usager et de sa commande
     $userProfile = $user->getUserProfile();
+    $order = new Order();
+    $order->id = $_SESSION['user_id'];
+    $userOrder = $order->getOrder();
     if(!is_object($userProfile)){
       header('Location: userProfileUpdate.php');
       exit();

@@ -4,6 +4,7 @@ require_once '../init/functions.php';
 require_once '../init/credentials.php';
 require_once '../models/database.php';
 require_once '../models/user.php';
+require_once '../models/order.php';
 require_once '../controllers/userProfileCtrl.php';
 ?>
 <!DOCTYPE html>
@@ -59,6 +60,14 @@ require_once '../controllers/userProfileCtrl.php';
 							<th scope="col">Montant</th>
 						</tr>
 					</thead>
+					<tbody>
+						<tr>
+							<th scope="col"><?= $userOrder->orderId ?></th>
+							<th scope="col"><?= $userOrder->orderDate ?></th>
+							<th scope="col"><?= $userOrder->orderStatus ?></th>
+							<th scope="col"><?= number_format($userOrder->orderTotalPrice, $decimals = 2, "," , " " ) ?> €</th>
+						</tr>
+					</tbody>
 				</table>
 			</div><!--FIN DIV MILIEU -->
 			<div class="col-2"><!--DIV DROITE PUB -->

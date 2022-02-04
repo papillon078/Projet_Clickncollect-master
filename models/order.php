@@ -106,6 +106,41 @@ public function cartCreate(){
 }
 
 /**
+  * méthode permettant de récupérer le profil de l'utilisateur
+  * @return array
+  */
+public function getOrder() {
+
+    // définition de la requête sql
+  $query = "SELECT  `ll7882_orders`.`id` AS `orderId`, 
+                    DATE_FORMAT(`order_date`, '%e/%m/%Y') AS `orderDate`, 
+                    `ll7882_status`.`name` AS `orderStatus`, 
+                    `ll7882_orders`.`total_price` AS `orderTotalPrice`
+                    
+  FROM `ll7882_orders`
+  INNER JOIN `ll7882_status`
+  ON `ll7882_status`.`id` = `ll7882_orders`.`id_ll7882_status`
+  WHERE `ll7882_orders`.`id_ll7882_users` = :id";
+  
+    // soumission de la requête au serveur de la base de données
+  $result = $this->db->prepare($query);
+
+    // association des marqueurs nommés aux véritables informations
+  $result->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+    // execution de la requete (execute se fait tjs avec prepare)
+  try {
+
+    $result->execute();
+      // récupération du profil usager sous forme d'un tableau d'objets
+    return $result->fetch(PDO::FETCH_OBJ);
+      //bloc catch de renvoi des erreurs
+  } catch (PDOException $e) {
+    die('echec de la connexion : ' . $e->getMessage());
+  }
+}
+
+/**
 * méthode permettant de mettre à jour le profil d'un utilisateur qui vient de s'inscrire
 * @return boolean
 */
@@ -115,7 +150,10 @@ public function cartCreate(){
 
      // définition de la requête sql
     $query = "  UPDATE  `ll7882_orders`
-                SET     `id_ll7882_status` = :id_ll7882_status,
+                SET     `order_date` = :order_date,
+                        `delivery_date` = :delivery_date,
+                        `total_price` = :total_price,
+                        `id_ll7882_status` = :id_ll7882_status,
                         `id_ll7882_timeslot_allocations` = :id_ll7882_timeslot_allocations
                 WHERE  `id_ll7882_users` = :user";
 
@@ -123,6 +161,9 @@ public function cartCreate(){
     $result = $this->db->prepare($query);
 
    // association des marqueurs nommées aux véritables informations
+    $result->bindValue(':order_date', $this->order_date, PDO::PARAM_STR);
+    $result->bindValue(':delivery_date', $this->delivery_date, PDO::PARAM_STR);
+    $result->bindValue(':total_price', $this->total_price, PDO::PARAM_STR);
     $result->bindValue(':user', $this->id_ll7882_users, PDO::PARAM_INT);
     $result->bindValue(':id_ll7882_status', $this->id_ll7882_status, PDO::PARAM_INT);
     $result->bindValue(':id_ll7882_timeslot_allocations', $this->id_ll7882_timeslot_allocations, PDO::PARAM_INT);

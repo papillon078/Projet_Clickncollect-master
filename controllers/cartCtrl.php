@@ -17,23 +17,25 @@ if (!isAdmin() && !isSeller()){
   }
   
 /*******************************************************************************
-*  Generation des boutons pour choisir son rendez-vous de retrait de commande
+* Generation des boutons pour choisir son rendez-vous de retrait de commande
 * GENERER LES DATES EN FORMAT DATETIME POUR INSERER DS LA BASE DE DONNEE
 ******************************************************************************/
 
 $dateAng = date("Y-m-d");
 $jour = date("l");
-$joursFR = array("Dimanche", "Lundi", "Mardi", "Mercredi", "jeudi", "vendredi", "Samedi");
+$joursFR = array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
 $moisFR = array("01" => "Janvier", "02" => "Février", "03" => "Mars", "04" => "Avril", "05" => "Mai", "06" => "Juin", "07" => "Juillet", "08" => "Août", "09" => "Septembre", "10" => "Octobre", "11" => "Novembre", "12" => "Décembre");
 
 if ($jour=="Sunday"){
-  $jour = date("Y-m-d", strtotime("$jour +1 day")); 
+  $jour = date("Y-m-d", strtotime("$jour +1 day"));
+  $jourHeure = date("Y-m-d H:i:s", strtotime("$jour +1 day")); 
   $jourmeme = $joursFR[strftime('%w',strtotime($jour))]." ".strftime('%d',strtotime($jour))." ".$moisFR[strftime('%m',strtotime($jour))];
   $lendemain = $joursFR[strftime('%w',strtotime("$jour +1 day"))]." ".strftime('%d',strtotime("$jour +1 day"))." ".$moisFR[strftime('%m',strtotime("$jour +1 day"))];
   $lendemainBDD = date("Y-m-d", strtotime("$jour +1 day"));
   /*echo("dateBDD ".$jour."</br>"."date affichée ".$jourmeme."</br>"."lendemain BDD : ".date("Y-m-d", strtotime("$jour +1 day")));*/
 }else{
   $jour = date("Y-m-d", strtotime($jour)); 
+  $jourHeure = date("Y-m-d H:i:s", strtotime($jour));
   $jourmeme = $joursFR[strftime('%w',strtotime($jour))]." ".strftime('%d',strtotime($jour))." ".$moisFR[strftime('%m',strtotime($jour))];
 
   if($jour=="Saturday"){
@@ -59,7 +61,7 @@ if ($jour=="Sunday"){
 if (isset($_POST['submit'])) {
   // création d'une instance de classe order
   $order = new Order();
-  $order->order_date = $jourmeme;
+  $order->order_date = $jourHeure;
   $order->delivery_date = $_POST['dateChoice'];
   $order->total_price = $total;
   $order->id_ll7882_users = $_SESSION['user_id'];
@@ -67,12 +69,13 @@ if (isset($_POST['submit'])) {
   $order->id_ll7882_timeslot_allocations = $_POST['timeSlot'];
   $success = $order->updateOrder();
 
-  if (isset($success) && $success) {
-
+if (isset($success) && $success) {
+    $_SESSION['successMessage'] = 'Votre commande a bien été validé, vous pouvez la consulter ci-dessous';
     header('location: userProfile.php');
     exit();
   }
 }
+
 
 /*******************************************************************************
 *  Reception des messages de succès de création ou modification des produits
