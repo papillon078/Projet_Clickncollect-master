@@ -3,22 +3,23 @@ if (!isAdmin() && !isSeller()){
   header('location: ../index.php');
   exit();
 } else {
+
+  if ($_SESSION['cartStatus'] == null){
 // création d'une instance de classe item
-  $commandLine = new CommandLine();
-  $commandLine->id_ll7882_orders = $_SESSION['user_cart_id'];
+    $commandLine = new CommandLine();
+    $commandLine->id_ll7882_orders = $_SESSION['user_cart_id'];
 
   // appel de la méthode qui va executer la requête
-  $commandLines = $commandLine->getCommandLinesByOrderId();
+    $commandLines = $commandLine->getCommandLinesByOrderId();
 
   // calcul du total du panier
-  $total = 0;
-  for($i=0; $i<count($commandLines); $i++){
-    $total += $commandLines[$i]->total_TTC;
-  }
-  
+    $total = 0;
+    for($i=0; $i<count($commandLines); $i++){
+      $total += $commandLines[$i]->total_TTC;
+    }
+  }else{$commandLines = null;}
 /*******************************************************************************
 * Generation des boutons pour choisir son rendez-vous de retrait de commande
-* GENERER LES DATES EN FORMAT DATETIME POUR INSERER DS LA BASE DE DONNEE
 ******************************************************************************/
 
 $dateAng = date("Y-m-d");
@@ -52,8 +53,7 @@ if ($jour=="Sunday"){
  /*******************************************************************************
 *  Tableau des timeslots
 ******************************************************************************/  
-  $timeSlotArray = array("1" => "08:00", "2" => "08:30", "3" => "09:00", "4" => "09:30", "5" => "10:00", "6" => "10:30", "7" => "11:00", "8" => "11:30", "9" => "12:00", "10" => "12:30", "11" => "13:00", "12" => "13:30", "13" => "14:00", "14" => "14:30", "15" => "15:00", "16" => "15:30", "17" => "16:00", "18" => "16:30", "19" => "17:00", "20" => "17:30", "21" => "18:00", "22" => "18:30", "23" => "19:00", "24" => "19:30");
-
+$timeSlotArray = array("1" => "08:00", "2" => "08:30", "3" => "09:00", "4" => "09:30", "5" => "10:00", "6" => "10:30", "7" => "11:00", "8" => "11:30", "9" => "12:00", "10" => "12:30", "11" => "13:00", "12" => "13:30", "13" => "14:00", "14" => "14:30", "15" => "15:00", "16" => "15:30", "17" => "16:00", "18" => "16:30", "19" => "17:00", "20" => "17:30", "21" => "18:00", "22" => "18:30", "23" => "19:00", "24" => "19:30");
 
 /*******************************************************************************
 *  Mise a jour de la commande avec la date de retrait choisie
@@ -69,7 +69,8 @@ if (isset($_POST['submit'])) {
   $order->id_ll7882_timeslot_allocations = $_POST['timeSlot'];
   $success = $order->updateOrder();
 
-if (isset($success) && $success) {
+  if (isset($success) && $success) {
+    $_SESSION['cartStatus'] = $order->id_ll7882_status;
     $_SESSION['successMessage'] = 'Votre commande a bien été validé, vous pouvez la consulter ci-dessous';
     header('location: userProfile.php');
     exit();
